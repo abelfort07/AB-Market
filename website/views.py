@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template
-from .models import ItemsModel
-from . import db
+from .models import Items
 
 views = Blueprint('views', __name__)
 
@@ -13,7 +12,6 @@ def home_page():
 
 @views.route('/market')
 def market_page():
-    # items_query = ItemsModel.query.all()
-    # print(items_query)
-    return render_template('market.html')
+    items = Items.query.all()
+    return render_template('market.html', items=items)
 
