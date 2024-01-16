@@ -8,6 +8,7 @@ DB_NAME = 'items.db'
 def create_app():
     # Create the flask app
     app = Flask(__name__)
+    app.config['SECRET_KEY'] = '55258efedbe4608330a7271c'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
     app.app_context().push()
