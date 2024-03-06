@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<h1>Market Page</h1>
+<h1 style="text-align: center;">Market Page</h1>
 <table class="table table-hover table-dark">
     <thead>
         <tr>
@@ -13,7 +13,6 @@
             <th scope="col">Name</th>
             <th scope="col">Barcode</th>
             <th scope="col">Price</th>
-            <th scope="col">Description</th>
             <th scope="col">Options</th>
         </tr>
     </thead>
@@ -24,7 +23,6 @@
             <td>{{ item.name }}</td>
             <td>{{ item.barcode }}</td>
             <td>{{ item.price }}$</td>
-            <td>{{ item.description }}</td>
             <td>
                 <button class="btn btn-outline btn-info">More Info</button>
                 <button class="btn btn-outline btn-success">Purchase this Item</button>

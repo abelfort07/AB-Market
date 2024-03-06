@@ -6,7 +6,8 @@
 <body class="text-center">
     <div class="container"> 
         <br>
-        <form method="post" class="form-register" style="color: white;">
+        <form method="POST" class="form-register" style="color: white;">
+            {{ form.hidden_tag() }}
             <img src="{{ url_for('static', filename='images/resized_logo.jpg') }}" alt="" class="mb-4">
             <h1 class="h3 mb-3 font-weight-normal">
                 Create Your Acccount
