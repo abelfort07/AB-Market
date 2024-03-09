@@ -1,5 +1,5 @@
 from . import db
-
+from . import bcrypt
 
 class User(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
@@ -9,6 +9,14 @@ class User(db.Model):
     user_budget = db.Column(db.Integer(), nullable=False, default=10000)
     items = db.relationship('Items', backref='owned_user', lazy=True)
     
+    @property
+    def password_crypted(self):
+        return self.password_crypted
+    
+    @password_crypted.setter
+    def password_crypted(self, plain_text_password):
+        self.password = bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
+        
     def __repr__(self) -> str:
         return f'User  {self.username}'
 
