@@ -1,11 +1,13 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
 
 # create database 
 db = SQLAlchemy()
 DB_NAME = 'items.db'
 bcrypt = Bcrypt()
+login_manager = LoginManager()
 
 def create_app():
     # Create the flask app
@@ -14,6 +16,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
     bcrypt.init_app(app)
+    login_manager.init_app(app)
     app.app_context().push()
 
     # import and register blueprint
